@@ -1,0 +1,199 @@
+/*
+ * This file is a part of the Chrome Download Manager project.
+ *
+ */
+
+body {
+	background: #f2f3f5;
+}
+.switch-component{
+	position: relative;
+	right:  calc(-100% + 165px);
+	width: 180px;
+}
+.switch-container {
+	position: absolute;
+	font: 13px/20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	color: black;
+	text-align: center;
+	text-shadow: 0 0px rgba(0, 0, 0, 1.0);
+	background: #caccce;
+	border-radius: 18px;
+	margin-bottom: 3px;
+}
+.switch-container .switch-name {
+	margin-top: 4px;
+	margin-left: 10px;
+	color: #383838;
+	text-align: center;
+	float:left;
+}
+.switch-container .switch-icon {
+	position: relative;
+	float:left;
+	top: 5px;
+	left: 2px;
+	cursor: pointer;
+}
+.switch-container .switch-desc{
+	display:none;
+	position: absolute;
+	height:55px;            
+	top: calc(-100% - 3px);
+	z-index:100;
+	font: 10px/18px 'Lucida Grande', Arial, sans-serif;
+	color: #bbb;
+	text-align: center;
+	text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
+	background: rgba(34, 34, 34, 0.9);
+	border-radius: 4px;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+	background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+	background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+	-webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2), 0 0 6px rgba(0, 0, 0, 0.4);
+	box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2), 0 0 6px rgba(0, 0, 0, 0.4);
+}
+.switch-container .switch-desc:hover {
+	display:block;
+}
+.switch-container .switch-icon:hover~ .switch-desc{
+	display:block;
+}
+.switch-container .switch {
+	position: relative;
+	display: inline-block;
+	margin-left: 7px;
+	vertical-align: top;
+	width: 56px;
+	height: 20px;
+	padding: 3px;
+	background-color: white;
+	border-radius: 18px;
+	box-shadow: inset 0 -1px white, inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	cursor: pointer;
+	background-image: -webkit-linear-gradient(top, #eeeeee, white 25px);
+	background-image: -moz-linear-gradient(top, #eeeeee, white 25px);
+	background-image: -o-linear-gradient(top, #eeeeee, white 25px);
+	background-image: linear-gradient(to bottom, #eeeeee, white 25px);
+}
+.switch-container .switch-input {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+}
+.switch-container .switch-label {
+	position: relative;
+	display: block;
+	height: inherit;
+	font-size: 10px;
+	text-transform: uppercase;
+	background: #eceeef;
+	border-radius: inherit;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.15);
+	-webkit-transition: 0.15s ease-out;
+	-moz-transition: 0.15s ease-out;
+	-o-transition: 0.15s ease-out;
+	transition: 0.15s ease-out;
+	-webkit-transition-property: opacity background;
+	-moz-transition-property: opacity background;
+	-o-transition-property: opacity background;
+	transition-property: opacity background;
+}
+.switch-container .switch-label:before, .switch-container .switch-label:after {
+	position: absolute;
+	top: 50%;
+	margin-top: -.5em;
+	line-height: 1;
+	-webkit-transition: inherit;
+	-moz-transition: inherit;
+	-o-transition: inherit;
+	transition: inherit;
+}
+.switch-container .switch-label:before {
+	content: attr(data-off);
+	right: 11px;
+	color: #aaa;
+	text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+}
+.switch-container .switch-label:after {
+	content: attr(data-on);
+	left: 11px;
+	color: white;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.2);
+	opacity: 0;
+}
+.switch-container .switch-input:checked ~ .switch-label {
+	background: #4fb845;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), inset 0 0 3px rgba(0, 0, 0, 0.2);
+}
+.switch-container .switch-input:checked ~ .switch-label:before {
+	opacity: 0;
+}
+.switch-container .switch-input:checked ~ .switch-label:after {
+	opacity: 1;
+}
+.switch-container .switch-handle {
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	width: 18px;
+	height: 18px;
+	background: white;
+	border-radius: 10px;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+	background-image: -webkit-linear-gradient(top, white 40%, #f0f0f0);
+	background-image: -moz-linear-gradient(top, white 40%, #f0f0f0);
+	background-image: -o-linear-gradient(top, white 40%, #f0f0f0);
+	background-image: linear-gradient(to bottom, white 40%, #f0f0f0);
+	-webkit-transition: left 0.15s ease-out;
+	-moz-transition: left 0.15s ease-out;
+	-o-transition: left 0.15s ease-out;
+	transition: left 0.15s ease-out;
+}
+.switch-container .switch-handle:before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -6px 0 0 -6px;
+	width: 12px;
+	height: 12px;
+	background: #f9f9f9;
+	border-radius: 6px;
+	box-shadow: inset 0 1px rgba(0, 0, 0, 0.02);
+	background-image: -webkit-linear-gradient(top, #eeeeee, white);
+	background-image: -moz-linear-gradient(top, #eeeeee, white);
+	background-image: -o-linear-gradient(top, #eeeeee, white);
+	background-image: linear-gradient(to bottom, #eeeeee, white);
+}
+.switch-container .switch-input:checked ~ .switch-handle {
+	left: 40px;
+	box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+.addition_checkbox {
+	width: 25px;
+	height: 25px;
+	position: relative;
+	bottom: 0px;
+	right:  calc(-100% + 10px);
+}
+.addition_checkbox label {
+	display: block;
+	width: 19px;
+	height: 19px;
+	border-radius: 5px;
+	transition: all .5s ease;
+	cursor: pointer;
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	z-index: 1;
+}
+.addition_checkbox input[type=checkbox] {
+    visibility: hidden;
+}
+.addition_checkbox input[type=checkbox]:checked + label {
+	background: #4caf50;
+}

@@ -1,0 +1,60 @@
+{
+
+
+	"manifest_version": 2,
+	
+	"name": "__MSG_extension_name__",
+	
+	"short_name": "__MSG_extension_short_name__",
+	
+	"description": "__MSG_extension_description__",
+	
+	"version": "2.2.5",
+	
+	"minimum_chrome_version": "30.0.0.0",
+	
+	"default_locale": "en_US",
+	
+	"icons": {
+		"128": "images/manager-128.png",
+		"64": "images/manager-64.png",
+		"48": "images/manager-48.png",
+		"32": "images/manager-32.png",
+		"16": "images/manager-16.png"
+	},
+	
+	"background": {
+		"page": "background.html",
+		"persistent": true
+	},
+   
+	"browser_action": {
+		"default_title": "__MSG_extension_default_title__",
+		"default_icon": "images/manager-19_black.png",
+		"default_popup": "popup.html"
+	},
+   
+   "content_scripts": [ {
+		"all_frames": true,
+		"js": [ "scripts/content/preload.js" ],
+		"match_about_blank": true,
+		"matches": [ "http://*/*", "https://*/*" ],
+		"run_at": "document_start"
+	}, {
+		"all_frames": true,
+		"js": [ "scripts/content/postload.js" ],
+		"match_about_blank": true,
+		"matches": [ "http://*/*", "https://*/*" ],
+		"run_at": "document_end"
+   } ],
+
+   "options_ui": {
+		"chrome_style": true,
+		"page": "options.html"
+	},
+	
+   "web_accessible_resources": ["images/*.png"],
+   
+   "permissions": [ "tabs", "activeTab", "http://*/*", "https://*/*", "downloads", "downloads.open", "downloads.shelf", "storage", "notifications" ]
+   
+}
